@@ -1,0 +1,22 @@
+# Credentials and secrets: never commit
+.env
+*.env
+*credentials*
+*secret*
+
+# Course materials and private data stay out of this repo
+*.xlsx
+*.docx
+*.pdf
+private/
+coursework/
+
+# Python / Jupyter noise
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# OS noise
+Thumbs.db
+.DS_Store
+desktop.ini
