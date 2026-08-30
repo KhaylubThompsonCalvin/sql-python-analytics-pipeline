@@ -11,6 +11,10 @@
 private/
 coursework/
 
+# Downloaded public data: fetched via scripts/download_ssa_data.py, never committed
+data/raw/
+!data/README.md
+
 # Python / Jupyter noise
 .ipynb_checkpoints/
 __pycache__/
