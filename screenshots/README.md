@@ -1,6 +1,6 @@
 # Screenshots
 
-- `names-trend-chart.png` — actual output of the pipeline notebook (Marc vs. Mark, U.S. male births by year). Derived from public SSA baby-names data; safe to publish.
+- `names-trend-chart.png` - actual output of the pipeline notebook (Marc vs. Mark, U.S. male births by year). Derived from public SSA baby-names data; safe to publish.
 
 ## To add later (optional, capture yourself)
 

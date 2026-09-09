@@ -6,7 +6,7 @@ An end-to-end analytics project: take a public dataset, shape it with pandas, an
 
 ## Analytical question
 
-How did the popularity of two spellings of the same name — *Marc* and *Mark* — change over time in U.S. male births?
+How did the popularity of two spellings of the same name - *Marc* and *Mark* - change over time in U.S. male births?
 
 ## Key finding
 
@@ -17,7 +17,7 @@ Computed from the official SSA national files, 1880–2025:
 | **Mark** | **1960** | **58,727** | 1880 | 1,416 |
 | **Marc** | **1970** | **5,009** | 1901 | 162 |
 
-Both spellings follow the same broad arc — negligible before the 1940s, a sharp mid-century rise, a peak, then a long decline that continues through 2025. Across their 117 overlapping years the two series track each other closely in rank terms (Spearman **0.97**; Pearson **0.80**).
+Both spellings follow the same broad arc - negligible before the 1940s, a sharp mid-century rise, a peak, then a long decline that continues through 2025. Across their 117 overlapping years the two series track each other closely in rank terms (Spearman **0.97**; Pearson **0.80**).
 
 Two details keep that from being the whole story:
 
@@ -42,7 +42,7 @@ matplotlib           time-series comparison
 insight
 ```
 
-Notebook: [`notebooks/public-ssa-analysis.ipynb`](notebooks/public-ssa-analysis.ipynb) — committed **executed, with outputs saved**, so you can read the results without running anything.
+Notebook: [`notebooks/public-ssa-analysis.ipynb`](notebooks/public-ssa-analysis.ipynb) - committed **executed, with outputs saved**, so you can read the results without running anything.
 
 ## Original SQL Server pipeline
 
@@ -54,20 +54,20 @@ SQL Server → pyodbc → pandas → matplotlib
 
 Notebook: [`notebooks/sql-to-python-pipeline.ipynb`](notebooks/sql-to-python-pipeline.ipynb)
 
-It demonstrates ODBC driver configuration, a parameterised connection built from environment variables, and SQL issued from Python. **It is preserved as annotated code and is not executed here** — its cells carry no saved outputs, because the course database requires student credentials and is not publicly reachable.
+It demonstrates ODBC driver configuration, a parameterised connection built from environment variables, and SQL issued from Python. **It is preserved as annotated code and is not executed here** - its cells carry no saved outputs, because the course database requires student credentials and is not publicly reachable.
 
 That limitation is exactly why the public path above was added: the analysis now stands on data anyone can download, while the SQL notebook still shows the database work.
 
 ## Analysis workflow
 
-1. **Acquire** — fetch the official SSA archive and record provenance (source URL, retrieval time, SHA-256, year range)
-2. **Load** — read 146 yearly files, deriving each year from its filename
-3. **Filter** — male births, names `Marc` and `Mark`
-4. **Reshape** — pivot long → wide, one row per year, one column per name
-5. **Verify** — check missing values and understand *why* they are missing
-6. **Analyse** — peak year and volume for each name, peak gap, volume ratio, correlation
-7. **Visualise** — matplotlib time series
-8. **Interpret** — state what the data supports, and what it does not
+1. **Acquire** - fetch the official SSA archive and record provenance (source URL, retrieval time, SHA-256, year range)
+2. **Load** - read 146 yearly files, deriving each year from its filename
+3. **Filter** - male births, names `Marc` and `Mark`
+4. **Reshape** - pivot long → wide, one row per year, one column per name
+5. **Verify** - check missing values and understand *why* they are missing
+6. **Analyse** - peak year and volume for each name, peak gap, volume ratio, correlation
+7. **Visualise** - matplotlib time series
+8. **Interpret** - state what the data supports, and what it does not
 
 ## Run it yourself
 
@@ -81,7 +81,7 @@ jupyter lab notebooks/public-ssa-analysis.ipynb
 
 The script downloads the SSA archive, extracts the yearly files to `data/raw/`, and writes `data/raw/PROVENANCE.json`.
 
-Some networks are blocked by ssa.gov's CDN and get `HTTP 403`. If that happens, download `names.zip` manually from the [landing page](https://www.ssa.gov/oact/babynames/limits.html) and pass it in — validation, extraction, and provenance are identical either way:
+Some networks are blocked by ssa.gov's CDN and get `HTTP 403`. If that happens, download `names.zip` manually from the [landing page](https://www.ssa.gov/oact/babynames/limits.html) and pass it in - validation, extraction, and provenance are identical either way:
 
 ```bash
 python scripts/download_ssa_data.py --archive path/to/names.zip
@@ -89,7 +89,7 @@ python scripts/download_ssa_data.py --archive path/to/names.zip
 
 ### Optional: SQL Server path
 
-Runs against any SQL Server instance with a compatible table. Connection settings — including the ODBC driver name, which differs between machines — come from environment variables:
+Runs against any SQL Server instance with a compatible table. Connection settings - including the ODBC driver name, which differs between machines - come from environment variables:
 
 ```powershell
 $env:DB_SERVER   = "your-server"
@@ -102,19 +102,19 @@ jupyter lab notebooks/sql-to-python-pipeline.ipynb
 
 ## Skills demonstrated
 
-- **SQL** — filtered, ordered queries against SQL Server
-- **Python / pandas** — multi-file loading, filtering, `pivot` reshaping, aggregation, correlation
-- **matplotlib** — labelled time-series comparison
-- **Database connectivity** — pyodbc, Microsoft ODBC Driver, configurable connection strings
-- **Public-data ingestion** — scripted download, archive validation, provenance capture
-- **Reproducibility** — removing a private-data dependency so the analysis stands on public sources
-- **Data-quality reasoning** — recognising that SSA's reporting floor explains the missing early values
-- **Environment setup** — Anaconda, JupyterLab, Visual Studio Build Tools on Windows, including diagnosing a JupyterLab launch failure ([docs/process-notes.md](docs/process-notes.md))
-- **Security hygiene** — no hard-coded credentials; environment variables only
+- **SQL** - filtered, ordered queries against SQL Server
+- **Python / pandas** - multi-file loading, filtering, `pivot` reshaping, aggregation, correlation
+- **matplotlib** - labelled time-series comparison
+- **Database connectivity** - pyodbc, Microsoft ODBC Driver, configurable connection strings
+- **Public-data ingestion** - scripted download, archive validation, provenance capture
+- **Reproducibility** - removing a private-data dependency so the analysis stands on public sources
+- **Data-quality reasoning** - recognising that SSA's reporting floor explains the missing early values
+- **Environment setup** - Anaconda, JupyterLab, Visual Studio Build Tools on Windows, including diagnosing a JupyterLab launch failure ([docs/process-notes.md](docs/process-notes.md))
+- **Security hygiene** - no hard-coded credentials; environment variables only
 
 ## Data source
 
-U.S. Social Security Administration — national baby-name totals by year, public domain.
+U.S. Social Security Administration - national baby-name totals by year, public domain.
 
 - Archive: [ssa.gov/oact/babynames/names.zip](https://www.ssa.gov/oact/babynames/names.zip)
 - Landing page: [ssa.gov/oact/babynames](https://www.ssa.gov/oact/babynames/limits.html)
@@ -124,10 +124,10 @@ Format is one file per year, `Name,Sex,Count`, no header. See [`data/README.md`]
 
 ## Limitations
 
-- SSA omits any name with **fewer than 5 occurrences** in a year, so `Marc` has no entry before 1901 — the early gap is a reporting floor, not a true zero.
+- SSA omits any name with **fewer than 5 occurrences** in a year, so `Marc` has no entry before 1901 - the early gap is a reporting floor, not a true zero.
 - Counts come from Social Security card applications, not a complete birth registry.
 - This compares two spellings of one name; it is not a general study of naming trends.
-- Two series that both rise and fall mid-century will correlate partly because they share an era — correlation here is not evidence that one influenced the other.
+- Two series that both rise and fall mid-century will correlate partly because they share an era - correlation here is not evidence that one influenced the other.
 - The original SQL notebook cannot be re-run by a reader, since the course database is not public.
 
 ## Repository structure
@@ -152,7 +152,7 @@ Format is one file per year, `Name,Sex,Count`, no header. See [`data/README.md`]
 
 ## Course / portfolio context
 
-Built from CIS277A Data Analytics coursework at Portland Community College and expanded into a public-safe, reproducible portfolio project. It contains only my own work and analysis of public data — no instructor materials, lab instructions, quiz content, or grades.
+Built from CIS277A Data Analytics coursework at Portland Community College and expanded into a public-safe, reproducible portfolio project. It contains only my own work and analysis of public data - no instructor materials, lab instructions, quiz content, or grades.
 
 ## About me
 

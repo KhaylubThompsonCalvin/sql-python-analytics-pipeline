@@ -1,7 +1,7 @@
 # Data
 
 This directory holds the public dataset the analysis runs on. **The data itself is not committed to this
-repository** — it is downloaded from the official source instead.
+repository** - it is downloaded from the official source instead.
 
 ## Why the data isn't in the repo
 
@@ -27,7 +27,7 @@ python scripts/download_ssa_data.py
 
 That downloads the archive, extracts the yearly files into `data/raw/`, and writes
 `data/raw/PROVENANCE.json` recording the source URL, retrieval timestamp, SHA-256 of the archive, file
-count, and year range — so any figure produced later can be traced back to a specific download.
+count, and year range - so any figure produced later can be traced back to a specific download.
 
 Running it again is safe; it skips the download if the data is already there (`--force` to override).
 
@@ -48,7 +48,7 @@ Anna,F,2604
 ```
 
 `Count` is the number of U.S. births registered with that name and sex in that year. SSA applies a
-privacy floor — names with fewer than 5 occurrences in a year are omitted entirely, which matters when
+privacy floor - names with fewer than 5 occurrences in a year are omitted entirely, which matters when
 reading any early-year or rare-name trend.
 
 ## Layout
