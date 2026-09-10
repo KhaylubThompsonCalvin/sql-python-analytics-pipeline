@@ -154,6 +154,13 @@ Format is one file per year, `Name,Sex,Count`, no header. See [`data/README.md`]
 
 Built from CIS277A Data Analytics coursework at Portland Community College and expanded into a public-safe, reproducible portfolio project. It contains only my own work and analysis of public data - no instructor materials, lab instructions, quiz content, or grades.
 
+## Related work
+
+The other two public analytics projects from the same portfolio:
+
+- [What Drives Fuel Economy? A Regression Case Study](https://github.com/KhaylubThompsonCalvin/fuel-economy-analysis) - regression on the public Auto MPG dataset with residual diagnostics, reproducible from a clean clone.
+- [Data Science Salary Story](https://public.tableau.com/app/profile/khaylub.thompson/viz/DataScienceSalaryStory/DataScienceSalariesLocationRoleExperienceandTime) - a four point Tableau story on public salary data, published to Tableau Public.
+
 ## About me
 
 - Portfolio: [khaylub.com](https://khaylub.com)
